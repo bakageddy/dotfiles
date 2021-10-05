@@ -1,0 +1,83 @@
+# set notification-error-bg       "#282828" # bg
+# set notification-error-fg       "#fb4934" # bright:red
+# set notification-warning-bg     "#282828" # bg
+# set notification-warning-fg     "#fabd2f" # bright:yellow
+# set notification-bg             "#282828" # bg
+# set notification-fg             "#b8bb26" # bright:green
+# 
+# set completion-bg               "#504945" # bg2
+# set completion-fg               "#ebdbb2" # fg
+# set completion-group-bg         "#3c3836" # bg1
+# set completion-group-fg         "#928374" # gray
+# set completion-highlight-bg     "#83a598" # bright:blue
+# set completion-highlight-fg     "#504945" # bg2
+# 
+# # Define the color in index mode
+# set index-bg                    "#504945" # bg2
+# set index-fg                    "#ebdbb2" # fg
+# set index-active-bg             "#83a598" # bright:blue
+# set index-active-fg             "#504945" # bg2
+# 
+# set inputbar-bg                 "#282828" # bg
+# set inputbar-fg                 "#ebdbb2" # fg
+# 
+# set statusbar-bg                "#504945" # bg2
+# set statusbar-fg                "#ebdbb2" # fg
+# 
+# set highlight-color             "#fabd2f" # bright:yellow
+# set highlight-active-color      "#fe8019" # bright:orange
+# 
+# set default-bg                  "#282828" # bg
+# set default-fg                  "#ebdbb2" # fg
+# set render-loading              true
+# set render-loading-bg           "#282828" # bg
+# set render-loading-fg           "#ebdbb2" # fg
+# 
+# # Recolor book content's color
+# set recolor-lightcolor          "#282828" # bg
+# set recolor-darkcolor           "#ebdbb2" # fg
+# set recolor                     "true"
+# # set recolor-keephue             true      # keep original color
+
+set font                        "Iosevka Nerd Font 12"
+set scroll-page-aware           "true"
+set guioptions                  ""
+set adjust-open                 "best-fit"
+
+set notification-error-bg       "#161821"
+set notification-error-fg       "#e98989"
+set notification-warning-bg     "#161821"
+set notification-warning-fg     "#e9b189"
+set notification-bg             "#161821"
+set notification-fg             "#d2d4de"
+
+set completion-bg               "#161821"
+set completion-fg               "#d2d4de"
+set completion-group-bg         "#33374c"
+set completion-group-fg         "#91acd1"
+set completion-highlight-bg     "#89b8c2"
+set completion-highlight-fg     "#6b7089"
+
+set index-bg                    "#33374c"
+set index-fg                    "#d2d4de"
+set index-active-bg             "#d2d4de"
+set index-active-fg             "#161821"
+
+set inputbar-bg                 "#1e2132"
+set inputbar-fg                 "#c6c8d1"
+
+set statusbar-bg                "#161821"
+set statusbar-fg                "#c6c8d1"
+
+set highlight-color             "#e9b189"
+set highlight-active-color      "#89b8c2"
+
+set default-bg                  "#161821"
+set default-fg                  "#6b7089"
+set render-loading              "true"
+set render-loading-bg           "#d2d4de"
+set render-loading-fg           "#6b7089"
+
+set recolor-lightcolor          "#161821"
+set recolor-darkcolor           "#d2d4de"
+set recolor                     "true"

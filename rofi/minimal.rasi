@@ -1,0 +1,66 @@
+configuration {
+  display-run: ":: ";
+  display-drun: ":: ";
+  display-window: ":: ";
+  drun-display-format: "{name}";
+  font: "Iosevka Nerd Font Medium 12";
+  modi: "window,run,drun";
+  show-icons: false;
+}
+
+* {
+
+  bg: #161821;
+  bg-alt: #c6c8d1;
+
+  fg: #6b7089;
+  fg-alt: #d2d4de;
+
+  background-color: @bg;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+element {
+  padding: 12;
+  text-color: @bg-alt;
+}
+
+element selected {
+  text-color: @fg;
+}
+
+element-text {
+  padding: 2;
+  background-color: inherit;
+  text-color: inherit;
+}
+
+entry {
+  padding: 12 0 12 3;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  columns: 2;
+  lines: 3;
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+prompt {
+  padding: 12 0 0 12;
+  text-color: @fg;
+}
+
+window {
+  transparency: "real";
+}
