@@ -1,0 +1,12 @@
+cava/
+chromium/
+dconf/
+discord/
+htop/
+nvim/plugged/
+nvim/undodir/
+pulse
+rofi/config.rasi
+tree-sitter/
+user-dirs.dirs
+user-dirs.locale
