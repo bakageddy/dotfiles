@@ -22,6 +22,7 @@ set clipboard+=unnamedplus
 set termguicolors
 language en_US.UTF-8
 
+
 call plug#begin('~/.config/nvim/plugged/')
 
 " Quality of Life Plugins
@@ -48,7 +49,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Colorschemes
 Plug 'cocopon/iceberg.vim'
 Plug 'adrian5/oceanic-next-vim'
-Plug 'connorholyday/vim-snazzy'
 
 call plug#end()
 
@@ -56,10 +56,19 @@ colorscheme iceberg
 
 highlight colorcolumn ctermbg=7 guibg=grey
 set colorcolumn=80
-
-let g:lightline = {'colorscheme': 'iceberg'}
+let g:lightline = {
+      \ 'colorscheme': 'iceberg',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 let mapleader = " "
+
 " Quality of life
 inoremap jj                                 <ESC>
 tnoremap jj                                 <C-\><C-n>
@@ -116,11 +125,9 @@ nnoremap <leader>k                          :wincmd k<CR>
 nnoremap <leader>l                          :wincmd l<CR>
 nnoremap <leader>h                          :wincmd h<CR>
 
-
-
 :lua << EOF
     local nvim_lsp = require('lspconfig')
-    local servers = {'clangd', 'pylsp'}
+    local servers = {'clangd', 'pylsp', 'rust_analyzer'}
     for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
             capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -154,11 +161,7 @@ nnoremap <leader>h                          :wincmd h<CR>
         }
     }
     require'colorizer'.setup()
-
-    require'telescope'.setup()
-
 EOF
-
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
