@@ -26,7 +26,6 @@ language en_US.UTF-8
 call plug#begin('~/.config/nvim/plugged/')
 
 " Quality of Life Plugins
-Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
@@ -45,10 +44,14 @@ Plug 'saadparwaiz1/cmp_luasnip'
 
 " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
 Plug 'cocopon/iceberg.vim'
 Plug 'adrian5/oceanic-next-vim'
+Plug 'FrenzyExists/aquarium-vim'
+Plug 'morhetz/gruvbox'
+Plug 'romgrk/doom-one.vim'
 
 call plug#end()
 
@@ -72,6 +75,8 @@ let mapleader = " "
 " Quality of life
 inoremap jj                                 <ESC>
 tnoremap jj                                 <C-\><C-n>
+nnoremap H                                  0
+nnoremap L                                  $
 nnoremap <leader>w                          :w<CR>
 nnoremap <leader>q                          :q!<CR>
 nnoremap <leader>vs                         :vsplit<SPACE>
@@ -81,6 +86,7 @@ nnoremap <leader>ev                         :find ~/.config/nvim/init.vim<CR>
 nnoremap <leader>es                         :find ~/.config/sxhkd/sxhkdrc<CR>
 nnoremap <leader>eb                         :find ~/.config/bspwm/bspwmrc<CR>
 nnoremap <leader>ek                         :find ~/.config/kitty/kitty.conf<CR>
+nnoremap <leader>ep                         :find $HOME/.config/picom/picom.conf<CR>
 
 " Some vim-plug commands
 nnoremap <leader>pi                         :PlugInstall<CR>
@@ -100,6 +106,7 @@ nnoremap <leader>tm                         <CMD>lua require('telescope.builtin'
 
 " For Compiling a single file
 nnoremap <leader>gcc                        :!gcc -Wall % && ./a.out<CR>
+nnoremap <leader>cl                         :!clisp %<CR>
 
 " File Exploring
 nnoremap <leader>on                         :Vex<CR>:vertical resize 30<CR>
@@ -124,6 +131,7 @@ nnoremap <leader>j                          :wincmd j<CR>
 nnoremap <leader>k                          :wincmd k<CR>
 nnoremap <leader>l                          :wincmd l<CR>
 nnoremap <leader>h                          :wincmd h<CR>
+
 
 :lua << EOF
     local nvim_lsp = require('lspconfig')
@@ -158,9 +166,16 @@ nnoremap <leader>h                          :wincmd h<CR>
     require'nvim-treesitter.configs'.setup {
         highlight = {
             enable = true,
-        }
+        },
+        autopairs = {enable = true},
     }
     require'colorizer'.setup()
+    local npairs = require("nvim-autopairs")
+    npairs.setup({
+        check_ts = true,
+    })
+
+
 EOF
 
 let g:netrw_banner = 0

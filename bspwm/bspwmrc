@@ -4,12 +4,12 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV
 
-bspc config border_width         2
-bspc config window_gap           12
+bspc config border_width            0
+bspc config window_gap              12
 
-bspc config split_ratio          0.50
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config split_ratio             0.50
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
 bspc config focused_border_color	"#95c4ce"
 bspc config active_border_color     "#84a0c6"
 bspc config normal_border_color     "#a093c7"
