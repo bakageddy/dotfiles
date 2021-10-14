@@ -48,19 +48,17 @@ Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
 Plug 'cocopon/iceberg.vim'
-Plug 'adrian5/oceanic-next-vim'
-Plug 'FrenzyExists/aquarium-vim'
-Plug 'morhetz/gruvbox'
-Plug 'romgrk/doom-one.vim'
+Plug 'shaunsingh/nord.nvim'
+Plug 'embark-theme/vim', {'as': 'embark'}
 
 call plug#end()
 
-colorscheme iceberg
+colorscheme embark
 
 highlight colorcolumn ctermbg=7 guibg=grey
 set colorcolumn=80
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
+      \ 'colorscheme': 'embark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
