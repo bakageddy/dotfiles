@@ -48,7 +48,6 @@ Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
 Plug 'cocopon/iceberg.vim'
-Plug 'shaunsingh/nord.nvim'
 Plug 'embark-theme/vim', {'as': 'embark'}
 
 call plug#end()
