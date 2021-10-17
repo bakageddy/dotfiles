@@ -18,7 +18,7 @@ bspc config presel_feedback_color 	"#89b8c2"
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
-feh --bg-scale ~/Pictures/.wallpaper/pencilMoon.png &
+feh --bg-scale ~/.software/wallpapers/Nord/nord-aquarium.png &
 pidof polybar || pkill polybar
 $HOME/.software/polybar-collection/themes/minimal/launch.sh &
 pidof picom || pkill picom
