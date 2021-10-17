@@ -31,8 +31,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'rktjmp/lush.nvim'
 
 " Auto Completion
 Plug 'neovim/nvim-lspconfig'
@@ -47,17 +49,17 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
-Plug 'cocopon/iceberg.vim'
-Plug 'embark-theme/vim', {'as': 'embark'}
+Plug 'arcticicestudio/nord-vim'
+" Plug 'casonadams/walh'
 
 call plug#end()
 
-colorscheme embark
+colorscheme nord
 
 highlight colorcolumn ctermbg=7 guibg=grey
 set colorcolumn=80
 let g:lightline = {
-      \ 'colorscheme': 'embark',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -84,6 +86,7 @@ nnoremap <leader>es                         :find ~/.config/sxhkd/sxhkdrc<CR>
 nnoremap <leader>eb                         :find ~/.config/bspwm/bspwmrc<CR>
 nnoremap <leader>ek                         :find ~/.config/kitty/kitty.conf<CR>
 nnoremap <leader>ep                         :find $HOME/.config/picom/picom.conf<CR>
+nnoremap <leader>ez                         :find $HOME/.config/zathura/zathurarc<CR>
 
 " Some vim-plug commands
 nnoremap <leader>pi                         :PlugInstall<CR>
@@ -93,6 +96,8 @@ nnoremap <leader>tt                         :TSBufToggle highlight<CR>
 
 " Telescope is the best!!
 nnoremap <leader>tf                         <CMD>lua require('telescope.builtin').find_files({hidden = true})<CR>
+nnoremap <leader>th                         <CMD>lua require('telescope.builtin').help_tags()<CR>
+nnoremap <leader>tr                         <CMD>lua require('telescope.builtin').treesitter()<CR>
 nnoremap <leader>tg                         <CMD>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <leader>ts                         <CMD>lua require('telescope.builtin').grep_string()<CR>
 nnoremap <leader>ty                         <CMD>lua require('telescope.builtin').filetypes()<CR>
@@ -104,6 +109,9 @@ nnoremap <leader>tm                         <CMD>lua require('telescope.builtin'
 " For Compiling a single file
 nnoremap <leader>gcc                        :!gcc -Wall % && ./a.out<CR>
 nnoremap <leader>cl                         :!clisp %<CR>
+
+" Compile a project
+nnoremap <leader>rr                         :RustRun<CR>
 
 " File Exploring
 nnoremap <leader>on                         :Vex<CR>:vertical resize 30<CR>
@@ -129,8 +137,14 @@ nnoremap <leader>k                          :wincmd k<CR>
 nnoremap <leader>l                          :wincmd l<CR>
 nnoremap <leader>h                          :wincmd h<CR>
 
-
 :lua << EOF
+    USER = vim.fn.expand('$USER')
+    local sumneko_root_path = ""
+    local sumneko_binary = ""
+    if vim.fn.has("unix") == 1 then
+        sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
+        sumneko_binary = "/home/" .. USER .. "/.config/nvim/lua-language-server/bin/Linux/lua-language-server"
+    end
     local nvim_lsp = require('lspconfig')
     local servers = {'clangd', 'pylsp', 'rust_analyzer'}
     for _, lsp in ipairs(servers) do
@@ -138,7 +152,24 @@ nnoremap <leader>h                          :wincmd h<CR>
             capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
         }
     end
-
+    require'lspconfig'.sumneko_lua.setup {
+        cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+        settings = {
+            Lua = {
+                runtime = {
+                    version = 'LuaJIT',
+                    path = vim.split(package.path, ';')
+                },
+                diagnostics = {
+                    globals = {'vim'}
+                },
+                workspace = {
+                    library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+                }
+            }
+        },
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    }
     local cmp = require'cmp'
 
     cmp.setup({
@@ -171,7 +202,17 @@ nnoremap <leader>h                          :wincmd h<CR>
     npairs.setup({
         check_ts = true,
     })
-
+    local actions = require('telescope.actions')
+    local previewers = require('telescope.previewers')
+    require('telescope').setup {
+        extensions = {
+            fzy_native = {
+                override_generic_sorter = false,
+                override_file_sorter = true,
+            },
+        }
+    }
+    require('telescope').load_extension('fzy_native')
 
 EOF
 
@@ -180,3 +221,6 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+
+autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2
