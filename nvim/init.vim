@@ -1,5 +1,5 @@
 filetype plugin on
-set nobk noswapfile noudf udir=~/.config/nvim/undodir
+set nobk noswapfile udf udir=~/.config/nvim/undodir
 set backspace=eol,indent,start
 set incsearch
 set nohls
@@ -28,13 +28,10 @@ call plug#begin('~/.config/nvim/plugged/')
 " Quality of Life Plugins
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'rktjmp/lush.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'airblade/vim-rooter'
 
 " Auto Completion
 Plug 'neovim/nvim-lspconfig'
@@ -44,12 +41,19 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
+Plug 'frenzyexists/aquarium-vim', {'branch': 'develop'}
 " Plug 'casonadams/walh'
 
 call plug#end()
@@ -58,17 +62,6 @@ colorscheme nord
 
 highlight colorcolumn ctermbg=7 guibg=grey
 set colorcolumn=80
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-
 let mapleader = " "
 
 " Quality of life
@@ -109,6 +102,7 @@ nnoremap <leader>tm                         <CMD>lua require('telescope.builtin'
 " For Compiling a single file
 nnoremap <leader>gcc                        :!gcc -Wall % && ./a.out<CR>
 nnoremap <leader>cl                         :!clisp %<CR>
+nnoremap <leader>ll                         :!luajit %<CR>
 
 " Compile a project
 nnoremap <leader>rr                         :RustRun<CR>
@@ -144,6 +138,8 @@ nnoremap <leader>h                          :wincmd h<CR>
     if vim.fn.has("unix") == 1 then
         sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
         sumneko_binary = "/home/" .. USER .. "/.config/nvim/lua-language-server/bin/Linux/lua-language-server"
+    else
+        print("Not viable system")
     end
     local nvim_lsp = require('lspconfig')
     local servers = {'clangd', 'pylsp', 'rust_analyzer'}
@@ -221,6 +217,10 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+
+let g:rooter_patterns = ['.git', '.gitignore', 'Makefile', 'bin/activate.sh']
+let g:rooter_change_directory_for_non_project_files = ''
+let g:rooter_silent_chdir = 1
 
 autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2
