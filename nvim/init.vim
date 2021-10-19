@@ -35,6 +35,7 @@ Plug 'airblade/vim-rooter'
 
 " Auto Completion
 Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind-nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
@@ -131,87 +132,6 @@ nnoremap <leader>k                          :wincmd k<CR>
 nnoremap <leader>l                          :wincmd l<CR>
 nnoremap <leader>h                          :wincmd h<CR>
 
-:lua << EOF
-    USER = vim.fn.expand('$USER')
-    local sumneko_root_path = ""
-    local sumneko_binary = ""
-    if vim.fn.has("unix") == 1 then
-        sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
-        sumneko_binary = "/home/" .. USER .. "/.config/nvim/lua-language-server/bin/Linux/lua-language-server"
-    else
-        print("Not viable system")
-    end
-    local nvim_lsp = require('lspconfig')
-    local servers = {'clangd', 'pylsp', 'rust_analyzer'}
-    for _, lsp in ipairs(servers) do
-        nvim_lsp[lsp].setup {
-            capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-        }
-    end
-    require'lspconfig'.sumneko_lua.setup {
-        cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-        settings = {
-            Lua = {
-                runtime = {
-                    version = 'LuaJIT',
-                    path = vim.split(package.path, ';')
-                },
-                diagnostics = {
-                    globals = {'vim'}
-                },
-                workspace = {
-                    library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
-                }
-            }
-        },
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    }
-    local cmp = require'cmp'
-
-    cmp.setup({
-        snippet = {
-            expand = function(args)
-                require('luasnip').lsp_expand(args.body)
-            end,
-        },
-        mapping = {
-            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.close(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        },
-        sources = {
-            {name = 'nvim_lsp'},
-            {name = 'luasnip'},
-            {name = 'buffer'},
-        }
-    })
-    require'nvim-treesitter.configs'.setup {
-        highlight = {
-            enable = true,
-        },
-        autopairs = {enable = true},
-    }
-    require'colorizer'.setup()
-    local npairs = require("nvim-autopairs")
-    npairs.setup({
-        check_ts = true,
-    })
-    local actions = require('telescope.actions')
-    local previewers = require('telescope.previewers')
-    require('telescope').setup {
-        extensions = {
-            fzy_native = {
-                override_generic_sorter = false,
-                override_file_sorter = true,
-            },
-        }
-    }
-    require('telescope').load_extension('fzy_native')
-
-EOF
-
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
@@ -224,3 +144,12 @@ let g:rooter_silent_chdir = 1
 
 autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType lua lua require'cmp'.setup.buffer {
+\   sources = {
+\       {name = 'nvim_lua'},
+\       {name = 'nvim_lsp'},
+\       {name = 'buffer'},
+\       {name = 'luasnip'},
+\   },
+\ }
