@@ -1,9 +1,5 @@
--- Eviline config for lualine
--- Author: shadmansaleh
--- Credit: glepnir
 local lualine = require 'lualine'
 
--- Color table for highlights
 local colors = {
   bg = '#2e3440',
   fg = '#d8dee9',
