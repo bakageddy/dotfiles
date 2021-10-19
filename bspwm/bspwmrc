@@ -18,12 +18,12 @@ bspc config presel_feedback_color 	"#2E3440"
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
-feh --bg-scale ~/.software/wallpapers/Nord/nord-aquarium.png &
+feh --bg-scale ~/Pictures/.wallpaper/pencilArtWaifu.png &
 pidof polybar || pkill polybar
 $HOME/.software/polybar-collection/themes/minimal/launch.sh &
 pidof picom || pkill picom
 picom -f --experimental-backends &
 xsetroot -cursor_name left_ptr
 setxkbmap -option "ctrl:swapcaps"
-# pidof dunst && pkill dunst
-# dunst &
+pidof dunst && pkill dunst
+dunst &
