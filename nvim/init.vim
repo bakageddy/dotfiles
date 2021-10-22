@@ -39,6 +39,10 @@ Plug 'onsails/lspkind-nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-path'
+Plug 'kdheepak/cmp-latex-symbols'
+Plug 'ray-x/cmp-treesitter'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
@@ -54,7 +58,7 @@ Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
-Plug 'frenzyexists/aquarium-vim', {'branch': 'develop'}
+Plug 'gruvbox-community/gruvbox'
 " Plug 'casonadams/walh'
 
 call plug#end()
