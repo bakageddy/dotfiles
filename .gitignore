@@ -9,5 +9,9 @@ nvim/undodir/
 pulse
 rofi/config.rasi
 tree-sitter/
+QtProject.conf
+qBittorrent/
+tuir/
+mimeapps.list
 user-dirs.dirs
 user-dirs.locale
