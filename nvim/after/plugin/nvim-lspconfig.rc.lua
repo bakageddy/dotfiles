@@ -1,4 +1,6 @@
 local nvim_lsp = require('lspconfig')
+local lspkind = require 'lspkind'
+lspkind.init()
 local servers = {'clangd', 'pylsp', 'rust_analyzer'}
 local cmp = require'cmp'
 local sumneko_root_path = ""
@@ -12,9 +14,6 @@ if vim.fn.has("unix") == 1 then
 else
     print("Not viable system")
 end
-
-vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
-vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
 local border = {
       {"🭽", "FloatBorder"},
@@ -39,7 +38,7 @@ for _, lsp in ipairs(servers) do
     }
 end
 
-require'lspconfig'.sumneko_lua.setup {
+nvim_lsp.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     settings = {
         Lua = {
@@ -74,17 +73,30 @@ cmp.setup({
     sources = {
         {name = 'nvim_lsp'},
         {name = 'luasnip'},
+        {name = 'nvim_lua'},
+        {name = 'latex_symbols'},
+        {name = 'treesitter'},
+        {name = 'path'},
         {name = 'buffer'},
     },
     formatting = {
-        format = require("lspkind").cmp_format({with_text = true, menu = ({
-            buffer = "﬘ ",
-            nvim_lsp = " ",
-            luasnip = "✄ ",
-            nvim_lua = " ",
-            latex_symbols = " ",
-        })})
+        format = lspkind.cmp_format {
+            with_text = true,
+            menu = {
+                buffer = "[BUF]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[API]",
+                path = "[PATH]",
+                luasnip = "[SNIP]",
+                latex_symbols = "[LATEX]",
+                treesitter = "[TREE]",
+            }
+        }
     },
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
+    }
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
