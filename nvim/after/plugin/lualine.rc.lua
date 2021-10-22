@@ -1,7 +1,7 @@
 local lualine = require 'lualine'
 
 local colors = {
-  bg = '#2e3440',
+  bg = '#434c5e',
   fg = '#d8dee9',
   yellow = '#ebcb8b',
   cyan = '#8fbcbb',
@@ -80,11 +80,11 @@ ins_left {
   function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
+      n = colors.blue,
       i = colors.green,
-      v = colors.blue,
+      v = colors.magenta,
       [''] = colors.blue,
-      V = colors.blue,
+      V = colors.red,
       c = colors.magenta,
       no = colors.red,
       s = colors.orange,
@@ -104,7 +104,7 @@ ins_left {
     vim.api.nvim_command(
         'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
             colors.bg)
-    return ''
+    return ''
   end,
   color = "LualineMode",
   left_padding = 0
@@ -169,8 +169,8 @@ ins_left {
     end
     return msg
   end,
-  icon = ' LSP:',
-  color = {fg = '#ffffff', gui = 'bold'}
+  icon = ' LSP:',
+  color = {fg = colors.orange, gui = 'bold'}
 }
 
 -- Add components to right sections
@@ -190,9 +190,9 @@ ins_right {
 
 ins_right {
   'branch',
-  icon = '',
+  icon = '',
   condition = conditions.check_git_workspace,
-  color = {fg = colors.violet, gui = 'bold'}
+  color = {fg = colors.cyan, gui = 'bold'}
 }
 
 ins_right {
