@@ -19,8 +19,8 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
 feh --bg-scale ~/.software/wallpapers/Anime/anime-coffee-girl.jpg &
-pidof polybar || pkill polybar
-$HOME/.software/polybar-collection/themes/minimal/launch.sh &
+pidof polybar && pkill polybar
+$HOME/.config/polybar/launch.sh &
 pidof picom || pkill picom
 picom -f --experimental-backends &
 xsetroot -cursor_name left_ptr
