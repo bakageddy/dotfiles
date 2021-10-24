@@ -10,11 +10,11 @@ configuration {
 
 * {
 
-  bg: #161821;
-  bg-alt: #c6c8d1;
+  bg: #2E3440;
+  bg-alt: #D8DEE9;
 
-  fg: #6b7089;
-  fg-alt: #d2d4de;
+  fg: #81A1C1;
+  fg-alt: #D8DEE9;
 
   background-color: @bg;
   border: 0;
