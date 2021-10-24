@@ -121,10 +121,10 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 Print
-	maim -u -m 10 ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+	maim -u ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
 
 super + Print
-	maim -u -m 10 -s ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+	maim -u -s ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
 
 
 XF86AudioRaiseVolume

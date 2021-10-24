@@ -29,6 +29,7 @@ call plug#begin('~/.config/nvim/plugged/')
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'hoob3rt/lualine.nvim'
+Plug 'kdheepak/tabline.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'airblade/vim-rooter'
@@ -51,6 +52,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
 
 " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -58,11 +60,12 @@ Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
-Plug 'gruvbox-community/gruvbox'
+Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop'}
 " Plug 'casonadams/walh'
 
 call plug#end()
 
+" colorscheme aquarium
 colorscheme nord
 
 highlight colorcolumn ctermbg=7 guibg=grey
@@ -101,8 +104,8 @@ nnoremap <leader>ts                         <CMD>lua require('telescope.builtin'
 nnoremap <leader>ty                         <CMD>lua require('telescope.builtin').filetypes()<CR>
 nnoremap <leader>tb                         <CMD>lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>tc                         <CMD>lua require('telescope.builtin').colorscheme()<CR>
-nnoremap <leader>tp                         <CMD>lua require('telescope.builtin').planets()<CR>
 nnoremap <leader>tm                         <CMD>lua require('telescope.builtin').man_pages()<CR>
+nnoremap <leader>tp                         :Telescope projects<CR>
 
 " For Compiling a single file
 nnoremap <leader>gcc                        :!gcc -Wall % && ./a.out<CR>
@@ -149,11 +152,3 @@ let g:rooter_silent_chdir = 1
 autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType lua lua require'cmp'.setup.buffer {
-\   sources = {
-\       {name = 'nvim_lua'},
-\       {name = 'nvim_lsp'},
-\       {name = 'buffer'},
-\       {name = 'luasnip'},
-\   },
-\ }
