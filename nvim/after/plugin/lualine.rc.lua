@@ -1,33 +1,18 @@
 local lualine = require 'lualine'
-local tabline = require 'tabline'
-
--- -- local colors = {
--- --   bg = '#434c5e',
--- --   fg = '#d8dee9',
--- --   yellow = '#ebcb8b',
--- --   cyan = '#8fbcbb',
--- --   darkblue = '#81a1c1',
--- --   green = '#a3be8c',
--- --   orange = '#d08770',
--- --   violet = '#b48ead',
--- --   magenta = '#b48ead',
--- --   blue = '#88c0d0',
--- --   red = '#bf616a'
--- -- }
+local bufferline = require 'bufferline'
 
 -- local colors = {
---   bg = '#262626',
---   fg = '#fce8c3',
---   yellow = '#fed06e',
---   cyan = '#0aaeb3',
---   darkblue = '#2c78bf',
---   green = '#519f50',
---   orange = '#fbb829',
---   violet = '#e02c6d',
---   magenta = '#ff5c8f',
---   blue = '#68a8e4',
---   red = '#f75341',
-
+--   bg = '#434c5e',
+--   fg = '#d8dee9',
+--   yellow = '#ebcb8b',
+--   cyan = '#8fbcbb',
+--   darkblue = '#81a1c1',
+--   green = '#a3be8c',
+--   orange = '#d08770',
+--   violet = '#b48ead',
+--   magenta = '#b48ead',
+--   blue = '#88c0d0',
+--   red = '#bf616a'
 -- }
 
 -- local conditions = {
@@ -230,19 +215,21 @@ local tabline = require 'tabline'
 
 -- -- Now don't forget to initialize lualine
 -- lualine.setup(config)
-----
 lualine.setup {
   options = {
-    icons_enabled = true,
     theme = 'auto',
+    icons_enabled = true,
+    component_separators = " ",
+    section_separators = " ",
   }
 }
 
-tabline.setup {
-  enable = true,
+bufferline.setup {
   options = {
-    show_tabs_always = true,
-    show_devicons = true,
-    show_filename_only = true,
-  }
+    numbers = "ordinal",
+    modified_icon = '●',
+    diagnostics = "nvim_lsp",
+    diagnostics_update_in_insert = true,
+  },
 }
+bufferline.sort_buffers_by('directory')

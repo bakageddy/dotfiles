@@ -5,7 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 bspc monitor -d I II III IV V
 
 bspc config border_width            0
-bspc config window_gap              15
+bspc config window_gap              10
 
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
@@ -18,7 +18,7 @@ bspc config presel_feedback_color 	"#5E81AC"
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
-feh --bg-scale ~/.software/wallpapers/Anime/anime-coffee-girl.jpg &
+feh --bg-scale ~/.software/wallpapers/Nord/nord.jpg &
 pidof polybar && pkill polybar
 $HOME/.config/polybar/launch.sh &
 pidof picom || pkill picom

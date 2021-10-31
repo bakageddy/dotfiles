@@ -1,5 +1,5 @@
 filetype plugin on
-set nobk noswapfile udf udir=~/.config/nvim/undodir
+set nobk noswapfile udf udir=~/.config/nvim/undodir/
 set backspace=eol,indent,start
 set incsearch
 set nohls
@@ -29,7 +29,7 @@ call plug#begin('~/.config/nvim/plugged/')
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'hoob3rt/lualine.nvim'
-Plug 'kdheepak/tabline.nvim'
+Plug 'akinsho/bufferline.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'airblade/vim-rooter'
@@ -40,10 +40,9 @@ Plug 'onsails/lspkind-nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lua'
+" Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-path'
-Plug 'kdheepak/cmp-latex-symbols'
-Plug 'ray-x/cmp-treesitter'
+" Plug 'ray-x/cmp-treesitter'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
@@ -56,17 +55,19 @@ Plug 'nvim-telescope/telescope-project.nvim'
 
 " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
-Plug 'arcticicestudio/nord-vim'
+Plug 'shaunsingh/nord.nvim'
+Plug 'AlessandroYorba/Alduin'
 Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop'}
-" Plug 'casonadams/walh'
 
 call plug#end()
 
 " colorscheme aquarium
-colorscheme nord
+" colorscheme nord
+colorscheme alduin
 
 highlight colorcolumn ctermbg=7 guibg=grey
 set colorcolumn=80
@@ -94,6 +95,7 @@ nnoremap <leader>pi                         :PlugInstall<CR>
 nnoremap <leader>pu                         :PlugUpdate<CR>
 nnoremap <leader>pc                         :PlugClean<CR>
 nnoremap <leader>tt                         :TSBufToggle highlight<CR>
+nnoremap <leader>tu                         :TSHighlightCapturesUnderCursor<CR>
 
 " Telescope is the best!!
 nnoremap <leader>tf                         <CMD>lua require('telescope.builtin').find_files({hidden = true})<CR>
@@ -105,12 +107,13 @@ nnoremap <leader>ty                         <CMD>lua require('telescope.builtin'
 nnoremap <leader>tb                         <CMD>lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>tc                         <CMD>lua require('telescope.builtin').colorscheme()<CR>
 nnoremap <leader>tm                         <CMD>lua require('telescope.builtin').man_pages()<CR>
-nnoremap <leader>tp                         :Telescope projects<CR>
+nnoremap <leader>tp                         :Telescope project<CR>
 
 " For Compiling a single file
 nnoremap <leader>gcc                        :!gcc -Wall % && ./a.out<CR>
-nnoremap <leader>cl                         :!clisp %<CR>
-nnoremap <leader>ll                         :!luajit %<CR>
+nnoremap <leader>cl                         :!sbcl --script %<CR>
+nnoremap <leader>sl                         :!gsi-script %<CR>
+nnoremap <leader>ua                         :!luajit %<CR>
 
 " Compile a project
 nnoremap <leader>rr                         :RustRun<CR>
@@ -149,6 +152,7 @@ let g:rooter_patterns = ['.git', '.gitignore', 'Makefile', 'bin/activate.sh']
 let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_silent_chdir = 1
 
-autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType lisp setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
