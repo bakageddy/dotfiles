@@ -29,7 +29,7 @@ call plug#begin('~/.config/nvim/plugged/')
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'hoob3rt/lualine.nvim'
-Plug 'akinsho/bufferline.nvim'
+Plug 'kdheepak/tabline.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'airblade/vim-rooter'
@@ -40,9 +40,7 @@ Plug 'onsails/lspkind-nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
-" Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-path'
-" Plug 'ray-x/cmp-treesitter'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
@@ -59,15 +57,10 @@ Plug 'nvim-treesitter/playground'
 Plug 'windwp/nvim-autopairs'
 
 " Colorschemes
-Plug 'shaunsingh/nord.nvim'
-Plug 'AlessandroYorba/Alduin'
-Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop'}
+Plug 'ishan9299/nvim-solarized-lua'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
-
-" colorscheme aquarium
-" colorscheme nord
-colorscheme alduin
 
 highlight colorcolumn ctermbg=7 guibg=grey
 set colorcolumn=80

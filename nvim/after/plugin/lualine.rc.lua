@@ -1,5 +1,5 @@
 local lualine = require 'lualine'
-local bufferline = require 'bufferline'
+local tabline = require 'tabline'
 
 -- local colors = {
 --   bg = '#434c5e',
@@ -217,19 +217,19 @@ local bufferline = require 'bufferline'
 -- lualine.setup(config)
 lualine.setup {
   options = {
-    theme = 'auto',
+    theme = 'solarized',
     icons_enabled = true,
     component_separators = " ",
     section_separators = " ",
   }
 }
 
-bufferline.setup {
+tabline.setup {
+  enable = true,
   options = {
-    numbers = "ordinal",
-    modified_icon = '●',
-    diagnostics = "nvim_lsp",
-    diagnostics_update_in_insert = true,
+    modified_icon = '⚈ ',
+    show_filename_only = true,
+    show_bufnr = true,
+    show_devicons = true,
   },
 }
-bufferline.sort_buffers_by('directory')
