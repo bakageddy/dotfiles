@@ -1,5 +1,4 @@
 filetype plugin on
-set cot=menuone,noselect shm+=c
 set backspace=eol,indent,start
 
 " Telescope is the best!!
