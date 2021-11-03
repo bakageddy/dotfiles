@@ -3,7 +3,7 @@ local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
 lspkind.init()
 local servers = {'clangd', 'pylsp', 'rust_analyzer'}
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local sumneko_root_path = ""
 local sumneko_binary = ""
 lspkind.init()
@@ -90,7 +90,6 @@ cmp.setup({
                 path = "[PATH]",
                 luasnip = "[SNIP]",
                 latex_symbols = "[LATEX]",
-                treesitter = "[TREE]",
             }
         }
     },
@@ -102,7 +101,6 @@ cmp.setup({
         {name = 'nvim_lsp'},
         {name = 'luasnip'},
         {name = 'nvim_lua'},
-        {name = 'treesitter'},
         {name = 'path'},
         {name = 'buffer'},
     },

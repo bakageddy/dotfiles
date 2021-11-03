@@ -3,19 +3,3 @@ add_newline = true
 [character]
 success_symbol = "[𝛌](bold green)"
 error_symbol = "[𝛌](bold red)"
-
-[rust]
-symbol = "  "
-
-[git_branch]
-symbol = "  "
-
-[package]
-symbol = "  "
-
-[python]
-symbol = "  "
-
-[lua]
-symbol = "  "
-
