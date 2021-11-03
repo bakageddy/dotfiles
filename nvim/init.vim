@@ -1,5 +1,6 @@
 filetype plugin on
 set backspace=eol,indent,start
+set cot=menuone,noselect shm+=c
 
 " Telescope is the best!!
 nnoremap <leader>tf                         <CMD>lua require('telescope.builtin').find_files({hidden = true})<CR>
