@@ -217,7 +217,7 @@ local tabline = require 'tabline'
 -- lualine.setup(config)
 lualine.setup {
   options = {
-    theme = 'solarized',
+    theme = 'iceberg',
     icons_enabled = true,
     component_separators = " ",
     section_separators = " ",
