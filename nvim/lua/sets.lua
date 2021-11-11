@@ -17,9 +17,9 @@ vim.o.updatetime = 50
 
 vim.o.undodir = "/home/dinu/.config/nvim/undodir/"
 vim.o.clipboard = vim.o.clipboard .. "unnamedplus"
--- vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menuone,noselect"
 vim.o.shortmess = vim.o.shortmess .. 'c'
--- vim.o.backspace = "eol,indent,start"
+vim.o.backspace = "eol,indent,start"
 
 
 vim.o.undofile = true
@@ -45,11 +45,20 @@ vim.wo.scrolloff = 10
 vim.o.sidescrolloff = 10
 vim.wo.sidescrolloff = 10
 
-vim.cmd [[highlight colorcolumn ctermbg=7 guibg=grey]]
-vim.wo.colorcolumn = "80"
+-- vim.cmd [[highlight colorcolumn ctermbg=7 guibg=grey]]
+-- vim.wo.colorcolumn = "80"
 
 
 vim.cmd [[language en_US.UTF-8]]
+vim.cmd [[filetype plugin indent on]]
+vim.cmd [[
+
+autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType lisp setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+]]
 
 vim.g.mapleader = ' '
 vim.b.mapleader = ' '

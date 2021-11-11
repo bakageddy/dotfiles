@@ -11,7 +11,6 @@
 -- end
 -- local packer_repo = string.format(plug_url_format, 'wbthomason/packer.nvim')
 -- local install_cmd = string.format('10split |term git clone --depth=1 %s %s', packer_repo, packer_install_dir)
--- 
 -- if fn.empty(fn.glob(packer_install_dir)) > 0 then
   -- vim.api.nvim_echo({{'Installing Packer.nvim', 'Type'}}, true, {})
   -- execute(install_cmd)
@@ -19,11 +18,10 @@
 -- end
 
 
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(
   function (use)
     -- Quality of life plugins
+    use 'wbthomason/packer.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'airblade/vim-rooter'
     use 'tpope/vim-commentary'
@@ -36,6 +34,10 @@ return require('packer').startup(
     use {'kdheepak/tabline.nvim',
       {requires = 'kyazdani42/nvim-web-devicons'},
       {requires = 'hoob3rt/lualine.nvim'},
+    }
+    use {
+      'kyazdani42/nvim-tree.lua',
+      {requires = 'kyazdani42/nvim-web-devicons'},
     }
 
     -- LSP Stuff
@@ -63,8 +65,11 @@ return require('packer').startup(
     -- treesitter
     use {'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
+    }
+
+    use {'nvim-treesitter/playground',
       requires = {
-        {'nvim-treesitter/playground'},
+        {'nvim-treesitter/nvim-treesitter'},
       }
     }
     use {'windwp/nvim-autopairs',
