@@ -15,7 +15,7 @@ configuration {
   bg-alt: #c6d0e9;
 
   fg: #84a0c6;
-  fg-alt: #c6c8d1;
+  fg-alt: #b1dba4;
 
   background-color: @bg;
   border: 0;

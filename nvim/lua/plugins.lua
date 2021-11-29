@@ -79,6 +79,8 @@ return require('packer').startup(
       }
     }
     -- colorscheme
+    use 'elianiva/icy.nvim'
     use 'cocopon/iceberg.vim'
+    use 'haxibami/urara.vim'
   end
 )
