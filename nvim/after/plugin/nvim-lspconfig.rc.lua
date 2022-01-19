@@ -1,9 +1,9 @@
 local nvim_lsp = require 'lspconfig'
 local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
-lspkind.init()
 local servers = {'clangd', 'pylsp', 'rust_analyzer'}
 local cmp = require 'cmp'
+local cmpLsp = require('cmp_nvim_lsp')
 local sumneko_root_path = ""
 local sumneko_binary = ""
 lspkind.init()
@@ -19,7 +19,7 @@ end
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = cmpLsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
 end
 

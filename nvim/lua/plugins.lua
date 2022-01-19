@@ -60,6 +60,7 @@ return require('packer').startup(
         {'nvim-lua/popup.nvim'},
         {'nvim-telescope/telescope-fzy-native.nvim'},
         {'nvim-telescope/telescope-project.nvim'},
+        {'nvim-telescope/telescope-file-browser.nvim'},
       }
     }
     -- treesitter
@@ -79,8 +80,6 @@ return require('packer').startup(
       }
     }
     -- colorscheme
-    use 'elianiva/icy.nvim'
-    use 'cocopon/iceberg.vim'
-    use 'haxibami/urara.vim'
+    use 'catppuccin/nvim'
   end
 )

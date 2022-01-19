@@ -41,7 +41,7 @@ vim.api.nvim_set_keymap(normal, '<LEADER>ty', '<CMD>lua require(\'telescope.buil
 vim.api.nvim_set_keymap(normal, '<LEADER>tb', '<CMD>lua require(\'telescope.builtin\').buffers()<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>tc', '<CMD>lua require(\'telescope.builtin\').colorscheme()<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>tm', '<CMD>lua require(\'telescope.builtin\').man_pages()<CR>', opts)
-vim.api.nvim_set_keymap(normal, '<LEADER>tw', '<CMD>lua require(\'telescope.builtin\').file_browser({hidden = true})<CR>', opts)
+vim.api.nvim_set_keymap(normal, '<LEADER>tw', '<CMD>lua require(\'telescope\').extensions.file_browser.file_browser()<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>tp', ':Telescope project<CR>', opts)
 
 vim.api.nvim_set_keymap(normal, '<LEADER>gcc', ':!gcc -Wall % && ./a.out<CR>', opts)
@@ -49,6 +49,7 @@ vim.api.nvim_set_keymap(normal, '<LEADER>cl', ':!sbcl --script %<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>gs', ':!gsi-script %<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>ua', ':!luajit %<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>rr', ':!cargo run -q<CR>', opts)
+vim.api.nvim_set_keymap(normal, '<LEADER>py', ':!python3 %<CR>', opts)
 
 vim.api.nvim_set_keymap(normal, '<LEADER>rb', '<C-^>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>on', ':NvimTreeOpen<CR>', opts)
