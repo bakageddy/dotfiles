@@ -136,14 +136,14 @@ XF86AudioLowerVolume
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
 
-XF86MonBrightnessDown
-	xbacklight -5%
+super + alt + Down
+	xbacklight -5
 
-XF86MonBrightnessUp
-	xbacklight +5%
+super + alt + Up
+	xbacklight +5
 
 super + shift + b
-    librewolf
+    $BROWSER
 
 super + shift + e
     kitty -e ranger
