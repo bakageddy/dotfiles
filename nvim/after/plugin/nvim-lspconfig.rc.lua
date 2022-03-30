@@ -1,12 +1,18 @@
 local nvim_lsp = require 'lspconfig'
 local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
-local servers = {'clangd', 'pylsp', 'rust_analyzer'}
+local servers = {'clangd', 'pylsp', 'rust_analyzer', 'gopls', 'hls'}
 local cmp = require 'cmp'
 local cmpLsp = require('cmp_nvim_lsp')
 local sumneko_root_path = ""
 local sumneko_binary = ""
+local util = require 'lspconfig/util'
 lspkind.init()
+
+
+local cfg = {
+  hint_prefix = " "
+}
 
 USER = vim.fn.expand('$USER')
 
@@ -17,8 +23,23 @@ else
     print("Not viable system")
 end
 
+local on_attach = function (client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {buffer=0})
+  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
+  vim.keymap.set("n", "<leader>ff", vim.lsp.buf.formatting, {buffer=0})
+  vim.keymap.set("n", "[e", vim.diagnostic.goto_next, {buffer=0})
+  vim.keymap.set("n", "]e", vim.diagnostic.goto_prev, {buffer=0})
+  vim.keymap.set("n", "<LEADER>rn", vim.lsp.buf.rename, {buffer=0})
+  vim.keymap.set("n", "<LEADER>ca", vim.lsp.buf.code_action, {buffer=0})
+end
+
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        require('lsp_signature').on_attach(cfg),
         capabilities = cmpLsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
 end
@@ -44,7 +65,24 @@ nvim_lsp.sumneko_lua.setup {
       }
   }
 },
+  on_attach = on_attach,
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+
+nvim_lsp.gopls.setup {
+  cmd = {"gopls", "serve"},
+  filetypes = {"go", "gomod"},
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    }
+  },
+  on_attach = on_attach,
+
 }
 
 cmp.setup({
@@ -108,6 +146,6 @@ cmp.setup({
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
-      prefix = ' ⟸  ',
+      prefix = '  ',
   }
 })

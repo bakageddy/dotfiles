@@ -1,39 +1,13 @@
--- local fn = vim.fn
--- local execute = vim.api.nvim_command
--- local packer_install_dir = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
--- local plug_url_format = ''
-
-
--- if vim.g.is_linux > 0 then
-  -- plug_url_format = 'https://hub.fastgit.org/%s'
--- else
-  -- plug_url_format = 'https://github.com/%s'
--- end
--- local packer_repo = string.format(plug_url_format, 'wbthomason/packer.nvim')
--- local install_cmd = string.format('10split |term git clone --depth=1 %s %s', packer_repo, packer_install_dir)
--- if fn.empty(fn.glob(packer_install_dir)) > 0 then
-  -- vim.api.nvim_echo({{'Installing Packer.nvim', 'Type'}}, true, {})
-  -- execute(install_cmd)
-  -- vim.cmd [[packadd packer.nvim]]
--- end
-
-
 return require('packer').startup(
   function (use)
     -- Quality of life plugins
+    use 'akinsho/toggleterm.nvim'
     use 'wbthomason/packer.nvim'
     use 'norcalli/nvim-colorizer.lua'
-    use 'airblade/vim-rooter'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-fugitive'
+    use 'ahmedkhalf/project.nvim'
+    use 'numToStr/Comment.nvim'
     use {'hoob3rt/lualine.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
-      config = {
-      }
-    }
-    use {'kdheepak/tabline.nvim',
-      {requires = 'kyazdani42/nvim-web-devicons'},
-      {requires = 'hoob3rt/lualine.nvim'},
     }
     use {
       'kyazdani42/nvim-tree.lua',
@@ -53,6 +27,8 @@ return require('packer').startup(
         {'saadparwaiz1/cmp_luasnip'},
       }
     }
+    use 'ray-x/lsp_signature.nvim'
+
     -- telescopic johnson
     use {'nvim-telescope/telescope.nvim',
       requires = {
@@ -79,7 +55,9 @@ return require('packer').startup(
         {'hrsh7th/nvim-cmp'},
       }
     }
+
     -- colorscheme
-    use 'catppuccin/nvim'
+    use 'morhetz/gruvbox'
+    use 'gdnand/aylin.nvim'
   end
 )

@@ -4,4 +4,4 @@ set recolor                     "true"
 set guioptions                  ""
 set adjust-open                 "best-fit"
 
-include                         catppuccin
+include                         ./gruvbox

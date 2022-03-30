@@ -48,10 +48,12 @@ vim.api.nvim_set_keymap(normal, '<LEADER>gcc', ':!gcc -Wall % && ./a.out<CR>', o
 vim.api.nvim_set_keymap(normal, '<LEADER>cl', ':!sbcl --script %<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>gs', ':!gsi-script %<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>ua', ':!luajit %<CR>', opts)
-vim.api.nvim_set_keymap(normal, '<LEADER>rr', ':!cargo run -q<CR>', opts)
+vim.api.nvim_set_keymap(normal, '<LEADER>cr', ':!cargo run -q<CR>', opts)
+vim.api.nvim_set_keymap(normal, '<LEADER>rr', ':RustRun<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>py', ':!python3 %<CR>', opts)
 
 vim.api.nvim_set_keymap(normal, '<LEADER>rb', '<C-^>', opts)
+vim.api.nvim_set_keymap(normal, '<LEADER>rc', ':ColorizerToggle<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>on', ':NvimTreeOpen<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>p', '"+p<CR>', opts)
 

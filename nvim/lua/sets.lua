@@ -11,7 +11,7 @@ vim.o.backup = false
 vim.o.swapfile = false
 vim.o.hlsearch = false
 
-vim.o.laststatus = 2
+vim.o.laststatus = 3
 vim.o.cmdheight = 2
 vim.o.updatetime = 50
 
@@ -54,7 +54,7 @@ vim.cmd [[filetype plugin indent on]]
 vim.cmd [[
 
 autocmd FileType haskell setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType rust setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType rust setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType lisp setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
