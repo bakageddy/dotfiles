@@ -25,3 +25,6 @@ xsetroot -cursor_name left_ptr
 # redshift -x & # reset color of screen
 # redshift -O 3000 & # make it warmer!
 setxkbmap -option "ctrl:swapcaps"
+pidof dunst && pkill polybar
+dunst &
+

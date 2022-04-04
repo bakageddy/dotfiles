@@ -71,3 +71,5 @@ vim.api.nvim_set_keymap(normal, '<LEADER>j', ':wincmd j<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>k', ':wincmd k<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>h', ':wincmd h<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>l', ':wincmd l<CR>', opts)
+
+vim.api.nvim_set_keymap(normal, '<A-i>', ':TZAtaraxis<CR>', opts)

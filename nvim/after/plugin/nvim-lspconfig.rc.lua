@@ -1,7 +1,13 @@
 local nvim_lsp = require 'lspconfig'
 local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
-local servers = {'clangd', 'pylsp', 'rust_analyzer', 'gopls', 'hls'}
+local servers = {'clangd',
+                 'pylsp',
+                 'rust_analyzer',
+                 'gopls',
+                 'hls',
+                 'tsserver',
+}
 local cmp = require 'cmp'
 local cmpLsp = require('cmp_nvim_lsp')
 local sumneko_root_path = ""

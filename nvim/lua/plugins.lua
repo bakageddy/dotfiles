@@ -2,6 +2,8 @@ return require('packer').startup(
   function (use)
     -- Quality of life plugins
     use 'akinsho/toggleterm.nvim'
+    use 'goolord/alpha-nvim'
+    use 'Pocco81/TrueZen.nvim'
     use 'wbthomason/packer.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'ahmedkhalf/project.nvim'
@@ -58,6 +60,5 @@ return require('packer').startup(
 
     -- colorscheme
     use 'morhetz/gruvbox'
-    use 'gdnand/aylin.nvim'
   end
 )
