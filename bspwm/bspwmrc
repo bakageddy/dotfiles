@@ -16,7 +16,7 @@ bspc config active_border_color     "#8EC07C"
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
-feh --bg-scale ~/.software/wallpapers/Gruv/platform.jpg &
+feh --bg-scale ~/.software/wallpapers/Crimson/wallhaven-rd2jw1.png &
 pidof polybar && pkill polybar
 $HOME/.config/polybar/launch.sh &
 pidof picom || pkill picom
