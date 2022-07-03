@@ -1,14 +1,15 @@
 [color]
 
+background              = '#2e3440'
 gradient = 1
 gradient_count = 7
-gradient_color_1 = '#d3869b'
-gradient_color_2 = '#83a598'
-gradient_color_3 = '#8ec07c'
-gradient_color_4 = '#b8bb26'
-gradient_color_5 = '#fabd2f'
-gradient_color_6 = '#fe8019'
-gradient_color_7 = '#fb4934'
+gradient_color_1     = '#b48ead'
+gradient_color_2     = '#81a1c1'
+gradient_color_3     = '#88c0d0'
+gradient_color_4     = '#8fbcbb'
+gradient_color_5     = '#a3b38c'
+gradient_color_6     = '#ebcb8b'
+gradient_color_7     = '#bf616a'
 
 [smoothing]
 

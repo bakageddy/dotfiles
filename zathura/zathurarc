@@ -1,7 +1,7 @@
-set font                        "Iosevka Nerd Font 14"
+set font                        "IosevkaTerm 14"
 set scroll-page-aware           "true"
 set recolor                     "true"
 set guioptions                  ""
 set adjust-open                 "best-fit"
 
-include                         ./gruvbox
+include                         ./nord
