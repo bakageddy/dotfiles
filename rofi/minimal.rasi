@@ -3,7 +3,7 @@ configuration {
   display-drun: ":: ";
   display-window: ":: ";
   drun-display-format: "{name}";
-  font: "Iosevka Nerd Font Medium 12";
+  font: "JetBrains Mono Medium 12";
   modi: "window,run,drun";
   terminal: "kitty";
   show-icons: false;
@@ -11,10 +11,10 @@ configuration {
 
 * {
 
-  bg: #282828;
-  bg-alt: #ebddd2;
+  bg: #2e3440;
+  bg-alt: #d8dee9;
 
-  fg: #8ec07c;
+  fg: #81a1c1;
 
   background-color: @bg;
   border: 0;

@@ -1,6 +1,6 @@
 local tree = require 'nvim-tree'
 
-vim.g.nvim_tree_respect_buf_cwd = 1
+vim.g.respect_buf_cwd = 1
 
 tree.setup {
   disable_netrw = true,
@@ -12,7 +12,7 @@ tree.setup {
     update_cwd = true,
   },
   view = {
-    width = 30,
+    width = 25,
     height = 30,
     side = 'left',
   }

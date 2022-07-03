@@ -4,19 +4,22 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V
 
-bspc config border_width            0
-bspc config window_gap              10
+bspc config border_width            2
+bspc config window_gap              15
 
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
 bspc config gapless_monocle         true
-bspc config presel_feedback_color   "#8EC07C"
-bspc config active_border_color     "#8EC07C"
+bspc config presel_feedback_color   \#a3b38c
+bspc config focused_border_color    \#a3b38c
+bspc config active_border_color     \#8fbcbb
+bspc config normal_border_color     \#8fbcbb
 
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
-feh --bg-scale ~/.software/wallpapers/Crimson/wallhaven-rd2jw1.png &
+feh --bg-scale ~/.software/nordic-wallpapers/wallpapers/ign_astronaut.png &
+# feh --bg-scale ~/.software/wallpapers/Nord/nord-aquarium.png &
 pidof polybar && pkill polybar
 $HOME/.config/polybar/launch.sh &
 pidof picom || pkill picom
@@ -25,6 +28,6 @@ xsetroot -cursor_name left_ptr
 # redshift -x & # reset color of screen
 # redshift -O 3000 & # make it warmer!
 setxkbmap -option "ctrl:swapcaps"
-pidof dunst && pkill polybar
+pidof dunst && pkill dunst
 dunst &
 

@@ -54,7 +54,7 @@ vim.api.nvim_set_keymap(normal, '<LEADER>py', ':!python3 %<CR>', opts)
 
 vim.api.nvim_set_keymap(normal, '<LEADER>rb', '<C-^>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>rc', ':ColorizerToggle<CR>', opts)
-vim.api.nvim_set_keymap(normal, '<LEADER>on', ':NvimTreeOpen<CR>', opts)
+vim.api.nvim_set_keymap(normal, '<LEADER>on', ':NvimTreeToggle<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>p', '"+p<CR>', opts)
 
 vim.api.nvim_set_keymap(normal, '<up>', '<nul>', opts)
@@ -72,4 +72,5 @@ vim.api.nvim_set_keymap(normal, '<LEADER>k', ':wincmd k<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>h', ':wincmd h<CR>', opts)
 vim.api.nvim_set_keymap(normal, '<LEADER>l', ':wincmd l<CR>', opts)
 
-vim.api.nvim_set_keymap(normal, '<A-i>', ':TZAtaraxis<CR>', opts)
+vim.api.nvim_set_keymap(normal, '<A-i>', ':TZMinimalist<CR>', opts)
+vim.api.nvim_set_keymap(normal, '<A-a>', ':TZAtaraxis<CR>', opts)

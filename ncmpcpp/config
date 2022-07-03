@@ -366,7 +366,7 @@ visualizer_look = ●▮
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-#progressbar_look = =>
+progressbar_look = =>
 #
 ## Available values: database, playlist.
 ##
@@ -374,7 +374,7 @@ visualizer_look = ●▮
 #
 ## Available values: classic, alternative.
 ##
-#user_interface = classic
+user_interface = alternative
 #
 #data_fetching_delay = yes
 #
@@ -403,7 +403,7 @@ visualizer_look = ●▮
 #
 #header_text_scrolling = yes
 #
-#cyclic_scrolling = no
+cyclic_scrolling = yes
 #
 #lyrics_fetchers = azlyrics, genius, musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
 #
@@ -574,13 +574,13 @@ visualizer_look = ●▮
 #
 #state_flags_color = default:b
 #
-#main_window_color = yellow
+main_window_color = blue
 #
 #color1 = white
 #
 #color2 = green
 #
-#progressbar_color = black:b
+progressbar_color = blue:b
 #
 #progressbar_elapsed_color = green:b
 #

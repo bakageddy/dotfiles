@@ -1,21 +1,37 @@
 local lualine = require 'lualine'
+local gruvbox = {
+  bg       = '#1d2021',
+  fg       = '#d4be98',
+  yellow   = '#d8a657',
+  cyan     = '#89b482',
+  darkblue = '#7daea3',
+  green    = '#a9b665',
+  orange   = '#e78a4e',
+  violet   = '#d3869b',
+  magenta  = '#d3869b',
+  blue     = '#7daea3',
+  red      = '#ea6962',
+
+}
+
+local nord = {
+  bg       = '#2E3440',
+  fg       = '#D8DEE9',
+  yellow   = '#EBCB8B',
+  cyan     = '#8FBCBB',
+  darkblue = '#81A1C1',
+  green    = '#A3B38C',
+  orange   = '#D08770',
+  violet   = '#B48EAD',
+  magenta  = '#B48EAD',
+  blue     = '#88C0D0',
+  red      = '#BF616A',
+}
+
 
 -- Color table for highlights
 -- stylua: ignore
-
-local colors = {
-  bg       = '#282828',
-  fg       = '#ebdbb2',
-  yellow   = '#fabd2f',
-  cyan     = '#83a598',
-  darkblue = '#458588',
-  green    = '#b8bb26',
-  orange   = '#fe8019',
-  violet   = '#d3869b',
-  magenta  = '#d3869b',
-  blue     = '#8ec07c',
-  red      = '#fb4934',
-}
+local colors = nord
 
 local conditions = {
   buffer_not_empty = function()
@@ -33,6 +49,7 @@ local conditions = {
 
 -- Config
 local config = {
+  globalstatus = true,
   options = {
     -- Disable sections and component separators
     component_separators = '',
@@ -111,7 +128,7 @@ ins_left {
       t = colors.red,
     }
     vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return ' '
+    return ''
   end,
   color = 'LualineMode',
   padding = { right = 1 },

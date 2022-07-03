@@ -1,4 +1,5 @@
 return require('packer').startup(
+
   function (use)
     -- Quality of life plugins
     use 'numToStr/FTerm.nvim'
@@ -58,7 +59,8 @@ return require('packer').startup(
     }
 
     -- colorscheme
-    use 'morhetz/gruvbox'
-    use 'yashguptaz/calvera-dark.nvim'
+    use 'eddyekofo94/gruvbox-flat.nvim'
+    use 'shaunsingh/nord.nvim'
+    -- use 'arcticicestudio/nord-vim'
   end
 )
