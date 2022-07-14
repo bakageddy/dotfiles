@@ -1,5 +1,5 @@
 local lualine = require 'lualine'
-local gruvbox = {
+local gruvbox_flat = {
   bg       = '#1d2021',
   fg       = '#d4be98',
   yellow   = '#d8a657',
@@ -11,7 +11,20 @@ local gruvbox = {
   magenta  = '#d3869b',
   blue     = '#7daea3',
   red      = '#ea6962',
+}
 
+local gruvbox = {
+  bg       = '#1d2021',
+  fg       = '#ebdbb2',
+  yellow   = '#fabd2f',
+  cyan     = '#8ec07c',
+  darkblue = '#83a598',
+  green    = '#b8bb26',
+  orange   = '#d65c0d',
+  violet   = '#d3869b',
+  magenta  = '#d3869b',
+  blue     = '#83a598',
+  red      = '#fb4934',
 }
 
 local nord = {
@@ -31,7 +44,7 @@ local nord = {
 
 -- Color table for highlights
 -- stylua: ignore
-local colors = nord
+local colors = gruvbox
 
 local conditions = {
   buffer_not_empty = function()
@@ -233,3 +246,4 @@ ins_right {
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
+
