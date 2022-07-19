@@ -1,9 +1,9 @@
 configuration {
-  display-run: ":: ";
-  display-drun: ":: ";
-  display-window: ":: ";
+  display-run: "𝛌 ";
+  display-drun: "𝛌 ";
+  display-window: "𝛌 ";
   drun-display-format: "{name}";
-  font: "Iosevka Term 14";
+  font: "Iosevka Medium 14";
   modi: "window,run,drun";
   terminal: "kitty";
   show-icons: false;
@@ -11,10 +11,10 @@ configuration {
 
 * {
 
-  bg: #282828;
-  bg-alt: #ebdbb2;
+  bg: #181820;
+  bg-alt: #9CABCA;
 
-  fg: #fabd2f;
+  fg: #D27E99;
 
   background-color: @bg;
   border: 0;

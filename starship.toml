@@ -1,6 +1,6 @@
 add_newline = true
 
 [character]
-success_symbol = "[ᴧ](bold green)"
-error_symbol = "[ᴧ](bold red)"
+success_symbol = "[𝛌](bold green)"
+error_symbol = "[𝛌](bold red)"
 

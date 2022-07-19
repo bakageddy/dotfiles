@@ -9,7 +9,7 @@ set completion-bg               "#1F1F28"
 set completion-fg               "#C8C093"
 set completion-group-bg         "#2A2A37"
 set completion-group-fg         "#C8C093"
-set completion-highlight-bg     "#88C0D0"
+set completion-highlight-bg     "#957FB8"
 set completion-highlight-fg     "#1F1F28"
 
 set index-bg                    "#1F1F28"

@@ -1,4 +1,18 @@
 local lualine = require 'lualine'
+local tokyonight = {
+    bg          = "#1a1b26",
+    fg          = "#c0caf5",
+    yellow      = '#e0af68',
+    cyan        = '#7dcfff',
+    darkblue    = '#7aa2f7',
+    green       = '#9ece6a',
+    orange      = '#ff9e64',
+    violet      = '#bb9af7',
+    magenta     = '#bb9af7',
+    blue        = '#7aa2f7',
+    red         = '#f7768e',
+}
+
 local gruvbox_flat = {
   bg       = '#1d2021',
   fg       = '#d4be98',
@@ -44,7 +58,7 @@ local nord = {
 
 -- Color table for highlights
 -- stylua: ignore
-local colors = gruvbox
+local colors = tokyonight
 
 local conditions = {
   buffer_not_empty = function()
@@ -214,7 +228,7 @@ ins_right {
 ins_right {
   'fileformat',
   fmt = string.upper,
-  icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
   color = { fg = colors.red, gui = 'bold' },
 }
 
@@ -246,4 +260,3 @@ ins_right {
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
-

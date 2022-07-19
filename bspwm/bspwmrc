@@ -4,21 +4,21 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V
 
-bspc config border_width            0
-bspc config window_gap              15
+bspc config border_width            2
+bspc config window_gap              10
 
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
 bspc config gapless_monocle         true
-bspc config presel_feedback_color   \#83a598
-bspc config focused_border_color    \#83a598
-bspc config active_border_color     \#8ec07c
-bspc config normal_border_color     \#8ec07c
+bspc config presel_feedback_color   \#bb9af7
+bspc config focused_border_color    \#e0af68
+bspc config active_border_color     \#7aa2f7
+bspc config normal_border_color     \#7aa2f7
 
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
-feh --bg-fill ~/Pictures/gruvbox-wallpaper/pixelart/image14.png &
+feh --bg-fill ~/Pictures/catppuccinWallpapers/landscapes/Cloudsday.jpg &
 pidof polybar && pkill polybar
 $HOME/.config/polybar/launch.sh &
 pidof picom || pkill picom

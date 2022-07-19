@@ -59,8 +59,7 @@ return require('packer').startup(
     }
 
     -- colorscheme
-    -- use 'eddyekofo94/gruvbox-flat.nvim'
     use 'ellisonleao/gruvbox.nvim'
-    use 'rebelot/kanagawa.nvim'
+    use 'trettons/tokyonight-nvim'
   end
 )
