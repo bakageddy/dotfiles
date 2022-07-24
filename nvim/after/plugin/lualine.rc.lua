@@ -1,17 +1,4 @@
 local lualine = require 'lualine'
-local tokyonight = {
-    bg          = "#1a1b26",
-    fg          = "#c0caf5",
-    yellow      = '#e0af68',
-    cyan        = '#7dcfff',
-    darkblue    = '#7aa2f7',
-    green       = '#9ece6a',
-    orange      = '#ff9e64',
-    violet      = '#bb9af7',
-    magenta     = '#bb9af7',
-    blue        = '#7aa2f7',
-    red         = '#f7768e',
-}
 
 local gruvbox_flat = {
   bg       = '#1d2021',
@@ -58,7 +45,7 @@ local nord = {
 
 -- Color table for highlights
 -- stylua: ignore
-local colors = tokyonight
+local colors = gruvbox
 
 local conditions = {
   buffer_not_empty = function()

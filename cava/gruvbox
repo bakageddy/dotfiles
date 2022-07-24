@@ -1,10 +1,10 @@
 gruvbox
 gradient = 1
 gradient_count = 7
-gradient_color_1 = '#d3869b'
-gradient_color_2 = '#83a598'
-gradient_color_3 = '#8ec07c'
-gradient_color_4 = '#b8bb26'
-gradient_color_5 = '#fabd2f'
-gradient_color_6 = '#fe8019'
-gradient_color_7 = '#fb4934'
+gradient_color_1 = '#D3869B'
+gradient_color_2 = '#83A598'
+gradient_color_3 = '#8EC07C'
+gradient_color_4 = '#B8BB26'
+gradient_color_5 = '#FABD2F'
+gradient_color_6 = '#FE8019'
+gradient_color_7 = '#FB4934'

@@ -60,6 +60,5 @@ return require('packer').startup(
 
     -- colorscheme
     use 'ellisonleao/gruvbox.nvim'
-    use 'trettons/tokyonight-nvim'
   end
 )
