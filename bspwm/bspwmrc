@@ -18,7 +18,8 @@ bspc config normal_border_color     \#83a598
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 
-feh --bg-fill ~/Pictures/.wallpaper/gruvboxAstro.jpg &
+# feh --bg-fill ~/Pictures/.wallpaper/gruvboxAstro.jpg &
+feh --bg-fill ~/Pictures/gruv/gruvbox/forest-4.jpg &
 pidof polybar && pkill polybar
 $HOME/.config/polybar/launch.sh &
 pidof picom || pkill picom
